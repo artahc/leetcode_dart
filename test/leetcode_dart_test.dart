@@ -96,4 +96,25 @@ void main() {
       });
     },
   );
+
+  group(
+    "findKthLargest",
+    () {
+      test(
+        "should return 5",
+        () {
+          final res = findKthLargest([3, 2, 1, 5, 6, 4], 2);
+          expect(res, 5);
+        },
+      );
+
+      test(
+        "should return 4",
+        () {
+          final res = findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4);
+          expect(res, 4);
+        },
+      );
+    },
+  );
 }

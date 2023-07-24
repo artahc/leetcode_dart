@@ -29,3 +29,9 @@ String kthLargestNumber(List<String> nums, int k) {
   final res = sorted[nums.length - k];
   return res.toString();
 }
+
+int findKthLargest(List<int> nums, int k) {
+  nums.sort();
+  final res = nums[nums.length - k];
+  return res;
+}
