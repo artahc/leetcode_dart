@@ -137,4 +137,39 @@ void main() {
       });
     },
   );
+
+  group(
+    "mergeTwoLists",
+    () {
+      test("test equality", () {
+        final equal = ListNode(0, ListNode(1)) == ListNode(0, ListNode(1));
+        expect(equal, true);
+      });
+
+      test("[1,2,4] & [1,3,4] => [1,1,2,3,4,4]", () {
+        final a = ListNode(1, ListNode(2, ListNode(4)));
+        final b = ListNode(1, ListNode(3, ListNode(4)));
+
+        final res = mergeTwoLists(a, b);
+
+        final expected = ListNode(
+          1,
+          ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(4, null))))),
+        );
+
+        expect(res, expected);
+      });
+
+      test("[0,1] & [2,1,3] => [0,1,1,2]", () {
+        final a = ListNode(1, ListNode(1));
+        final b = ListNode(1, ListNode(3, ListNode(5)));
+
+        final res = mergeTwoLists(a, b);
+
+        final expected = ListNode(1, ListNode(1, ListNode(1, ListNode(3, ListNode(5)))));
+
+        expect(res, expected);
+      });
+    },
+  );
 }

@@ -1,4 +1,3 @@
-import 'dart:collection';
 import 'dart:math';
 
 String longestCommonPrefix(List<String> strs) {
@@ -65,4 +64,49 @@ bool validParentheses(String s) {
   }
 
   return stack.isEmpty;
+}
+
+class ListNode {
+  int val;
+  ListNode? next;
+  ListNode([this.val = 0, this.next]);
+
+  @override
+  String toString() {
+    String s = "";
+
+    s += val.toString();
+    if (next != null) {
+      s += ", $next";
+    }
+
+    return s;
+  }
+
+  @override
+  bool operator ==(Object? other) {
+    return other is ListNode && other.hashCode == hashCode;
+  }
+
+  @override
+  int get hashCode {
+    return Object.hash(val, next?.hashCode);
+  }
+}
+
+
+/// NOTE: Either list1 and list2 SHOULD NOT sorted in non-decreasing order.
+/// Otherwise, this function won't works :)
+ListNode? mergeTwoLists(ListNode? list1, ListNode? list2) {
+  print("$list1 -> $list2");
+  if (list1 == null) return list2;
+  if (list2 == null) return list1;
+
+  if (list1.val < list2.val) {
+    list1.next = mergeTwoLists(list1.next, list2);
+    return list1;
+  } else {
+    list2.next = mergeTwoLists(list1, list2.next);
+    return list2;
+  }
 }
