@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:math';
 
 String longestCommonPrefix(List<String> strs) {
@@ -34,4 +35,34 @@ int findKthLargest(List<int> nums, int k) {
   nums.sort();
   final res = nums[nums.length - k];
   return res;
+}
+
+class Stack<T> {
+  final List _list;
+
+  Stack() : _list = List.empty(growable: true);
+
+  void push(T e) => _list.add(e);
+  void pop() => _list.removeLast();
+  T get peek => _list.last;
+  bool get isEmpty => _list.isEmpty;
+}
+
+bool validParentheses(String s) {
+  final pair = {'(': ')', '[': ']', '{': '}'};
+  final stack = Stack<String>();
+
+  for (int i = 0; i < s.length; i++) {
+    if (stack.isEmpty) {
+      stack.push(s[i]);
+    } else {
+      if (s[i] == pair[stack.peek]) {
+        stack.pop();
+      } else {
+        stack.push(s[i]);
+      }
+    }
+  }
+
+  return stack.isEmpty;
 }

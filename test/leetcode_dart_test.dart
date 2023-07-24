@@ -117,4 +117,24 @@ void main() {
       );
     },
   );
+
+  group(
+    'validParentheses',
+    () {
+      test("()[], should return true", () {
+        final res = validParentheses("()[]");
+        expect(res, true);
+      });
+
+      test("([)[, should return false", () {
+        final res = validParentheses("([)[");
+        expect(res, false);
+      });
+
+      test("([)], should return false", () {
+        final res = validParentheses("([)]");
+        expect(res, false);
+      });
+    },
+  );
 }
