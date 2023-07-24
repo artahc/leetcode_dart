@@ -98,7 +98,6 @@ class ListNode {
 /// NOTE: Either list1 and list2 SHOULD NOT sorted in non-decreasing order.
 /// Otherwise, this function won't works :)
 ListNode? mergeTwoLists(ListNode? list1, ListNode? list2) {
-  print("$list1 -> $list2");
   if (list1 == null) return list2;
   if (list2 == null) return list1;
 
