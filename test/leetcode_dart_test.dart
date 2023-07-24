@@ -166,9 +166,35 @@ void main() {
 
         final res = mergeTwoLists(a, b);
 
-        final expected = ListNode(1, ListNode(1, ListNode(1, ListNode(3, ListNode(5)))));
+        final expected =
+            ListNode(1, ListNode(1, ListNode(1, ListNode(3, ListNode(5)))));
 
         expect(res, expected);
+      });
+    },
+  );
+
+  group(
+    "removeDuplicates",
+    () {
+      test("[1,1,2,2,3,4], should return 2", () {
+        final res = removeDuplicates([1, 1, 2, 2, 3, 4]);
+        expect(res, 2);
+      });
+
+      test("[1,1,2], should return 1", () {
+        final res = removeDuplicates([1, 1, 2]);
+        expect(res, 1);
+      });
+
+      test("[0,0,1,1,1,2,2,3,3,4], should return 5", () {
+        final res = removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]);
+        expect(res, 5);
+      });
+
+      test("[0,0,1,1,1,2], should return 2", () {
+        final res = removeDuplicates([0, 0, 1, 1, 1, 2]);
+        expect(res, 3);
       });
     },
   );

@@ -94,7 +94,6 @@ class ListNode {
   }
 }
 
-
 /// NOTE: Either list1 and list2 SHOULD NOT sorted in non-decreasing order.
 /// Otherwise, this function won't works :)
 ListNode? mergeTwoLists(ListNode? list1, ListNode? list2) {
@@ -108,4 +107,21 @@ ListNode? mergeTwoLists(ListNode? list1, ListNode? list2) {
     list2.next = mergeTwoLists(list1, list2.next);
     return list2;
   }
+}
+
+int removeDuplicates(List<int> nums) {
+  int count = 0;
+  for (int i = 1; i < nums.length; i++) {
+    final cur = nums[i];
+    final prev = nums[i - 1];
+    if (cur == prev) {
+      nums.removeAt(i);
+      i--;
+      count++;
+    }
+  }
+
+  print(nums);
+
+  return count;
 }
