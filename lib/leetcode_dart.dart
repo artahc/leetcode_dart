@@ -27,6 +27,5 @@ String longestCommonPrefix(List<String> strs) {
 String kthLargestNumber(List<String> nums, int k) {
   final sorted = nums.map((e) => BigInt.parse(e)).toList()..sort();
   final res = sorted[nums.length - k];
-  print(res.toString());
   return res.toString();
 }
